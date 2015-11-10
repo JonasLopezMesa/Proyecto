@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" 
+    android:padding="3dp"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="430dp"
+        android:layout_gravity="center"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/botella_vino"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="700dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="3dp"
+        android:weightSum="1"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.47"
+        android:theme="@style/AppTheme">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Acidez: Sensación un tanto áspera y amarga debida a la presencia de diversos ácidos orgánicos. La acidez depende principalmente de la variedad de uva y los ácidos que proceden de ella, así como de la fermentación, que origina a su vez otros ácidos. Cierta cantidad de acidez es esencial para proporcionar sensación de frescura y ligereza en los vinos jóvenes.                                                                                                                                                                                                                                                                        "
+            android:layout_gravity="center"
+            android:paddingTop="160dp"/>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añada: Año en que se vendimian las uvas empleadas para elaborar un determinado vino. Algunos son célebres por haber dado una cosecha excelente y los vinos que se elaboran con estas uvas son de una calidad superior a aquellos que proceden de uvas de vendimias consideradas “normales”." />
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,25 +1,20 @@
 package com.example.jons.proyecto;
 
-import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
-
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.Menu;
-        import android.view.MenuItem;
-        import android.view.View;
+import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.GridView;
-        import android.widget.ImageButton;
-        import android.widget.ListView;
-        import android.widget.Spinner;
-        import android.widget.TextView;
-        import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-        import java.util.ArrayList;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GridActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -33,6 +28,7 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_grid);
+
 
 
         spinner = (Spinner)findViewById(R.id.spinner2);
@@ -53,13 +49,13 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
 
 
         final Vinos bandas_data[] = new Vinos[]{
-                new Vinos(R.drawable.vino, "Vino2"),
                 new Vinos(R.drawable.vino, "Vino1"),
-                new Vinos(R.drawable.ic_launcher, "Vino3"),
-                new Vinos(R.drawable.ic_launcher, "Vino4"),
-                new Vinos(R.drawable.ic_launcher, "Vino5"),
-                new Vinos(R.drawable.ic_launcher, "Vino6"),
-                new Vinos(R.drawable.ic_launcher, "Vino7"),
+                new Vinos(R.drawable.vino, "Vino2"),
+                new Vinos(R.drawable.vino, "Vino3"),
+                new Vinos(R.drawable.vino, "Vino4"),
+                new Vinos(R.drawable.vino, "Vino5"),
+                new Vinos(R.drawable.vino, "Vino6"),
+                new Vinos(R.drawable.vino, "Vino7"),
                 new Vinos(R.drawable.ic_launcher, "Vino8"),
                 new Vinos(R.drawable.ic_launcher, "Vino9"),
                 new Vinos(R.drawable.ic_launcher, "Vino10"),
@@ -148,14 +144,33 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
         });
 
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /* lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView v = (TextView) view.findViewById(R.id.tv);
                 Toast.makeText(getApplicationContext(), v.getText(), Toast.LENGTH_SHORT).show();
             }
+        });*/
+
+          lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                DialogoPersonalizado dialogo = new DialogoPersonalizado();
+                dialogo.show(fragmentManager, "tagPersonalizado");
+            }
         });
 
+
+       /* lv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                DialogoPersonalizado dialogo = new DialogoPersonalizado();
+                dialogo.show(fragmentManager, "tagPersonalizado");
+            }
+        });
+*/
 
         home = (ImageButton) findViewById(R.id.homeicon);
         home.setOnClickListener(this);
