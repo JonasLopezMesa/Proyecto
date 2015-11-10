@@ -14,17 +14,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.ACTIVITY" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".GridActivity" >
         <intent-filter>
             <action android:name="android.intent.action.GRIDACTIVITY" />
             <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
+        </activity>
+
+        <activity android:name="DialogoPersonalizado" >
+            <intent-filter>
+                <action android:name="android.intent.action.DIALOGOPERSONALIZADO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
