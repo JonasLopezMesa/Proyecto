@@ -29,7 +29,7 @@
         </intent-filter>
         </activity>
 
-        <activity android:name="DialogoPersonalizado" >
+        <activity android:name=".DialogoPersonalizado" >
             <intent-filter>
                 <action android:name="android.intent.action.DIALOGOPERSONALIZADO" />
                 <category android:name="android.intent.category.DEFAULT" />
