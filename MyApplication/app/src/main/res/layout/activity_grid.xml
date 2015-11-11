@@ -70,7 +70,7 @@
             android:columnWidth="200dp"
             android:numColumns="3"
             android:textFilterEnabled="false"
-            android:verticalSpacing="200dp"
+            android:verticalSpacing="100dp"
             android:clickable="false"
             android:drawSelectorOnTop="false"
             android:fastScrollAlwaysVisible="false"
