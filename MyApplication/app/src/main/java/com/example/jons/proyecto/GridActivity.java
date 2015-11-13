@@ -1,12 +1,17 @@
 package com.example.jons.proyecto;
 
+import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
@@ -23,13 +28,18 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
     GridView lv; //Variable del Grid
     Spinner spinner; //Variable del selector, en ese caso sólo está el primero.
     int mod = 0;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE); //Impedir que se vea el AppBar
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            // In KITKAT (4.4) and next releases, hide the virtual buttons
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                hideVirtualButtons();
+            }
+        }
+    }
+    @TargetApi(19)
+    public void hideVirtualButtons() {
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -37,6 +47,17 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                         | View.SYSTEM_UI_FLAG_FULLSCREEN
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE); //Impedir que se vea el AppBar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            hideVirtualButtons();
+        }
+
         setContentView(R.layout.activity_grid); //Iniciar el activity
 
         //Enlazar los objetos con el Layout
@@ -77,12 +98,12 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
         View header = (View) getLayoutInflater().inflate(R.layout.grid_header_row, null);
         lv.setAdapter(adapter);
 
-
         //FUNCIÓN QUE SE ACTIVA CUANDO SE SELECCIONA UN ITEM DEL SPINNER
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() { //Cuando se selecciona un ITEM del Spinner
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) { // Que hacer cuando se selecciona un ítem
-                Toast.makeText(GridActivity.this, "Position " + String.valueOf(spinner.getSelectedItem()), Toast.LENGTH_SHORT).show(); //Hace un toast
+
+                 Toast.makeText(GridActivity.this, "Position " + String.valueOf(spinner.getSelectedItem()), Toast.LENGTH_SHORT).show(); //Hace un toast
                 int j = 0; //Variable que servirá para incrementar el nuevo vector modificado que almacenará los nuevos datos del grid.
                 if (String.valueOf(spinner.getSelectedItem()).equals("Tipo") == false) { //Si el item seleccionado por el Spinner es Tipo, no cambia el estado del grid. Debería mostrar todos los Vinos. Necesita un Else
                     int contador = 0; //Variable que contará de que tamaño se debe construir el vector que almacenará los nuevos datos
@@ -107,6 +128,7 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) { //Que hacer cuando no hay nada seleccionado
+                hideVirtualButtons();
                 //Nada por ahora
             }
         });
