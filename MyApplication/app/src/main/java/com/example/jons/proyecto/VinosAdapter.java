@@ -12,6 +12,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 /**
  * Created by Jonás on 06/10/2015.
  */
@@ -19,14 +21,14 @@ public class VinosAdapter extends ArrayAdapter<Vinos> {
 
     Context context;
     int LayoutResortId;
-    Vinos data[]= null;
+    ArrayList<Vinos> data = null;
 
-    public VinosAdapter(Context context, int layoutResortId, Vinos[] data) {
+    public VinosAdapter(Context context, int layoutResortId,  ArrayList<Vinos> data) {
         super(context, layoutResortId,data);
 
         this.context= context;
         this.LayoutResortId= layoutResortId;
-        this.data= data;
+        this.data = data;
 
     }
 
@@ -47,7 +49,7 @@ public class VinosAdapter extends ArrayAdapter<Vinos> {
             holder= (VinosHolder) row.getTag();
         }
 
-        Vinos bandas = data[position];
+        Vinos bandas = data.get(position);
         holder.texto.setText(bandas.title);
         holder.imagen.setImageResource(bandas.icon);
 

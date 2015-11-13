@@ -67,57 +67,15 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
         spinner.setAdapter(arrayAdapter); //Adaptador para el Spinner
 
         //GRID///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        final Vinos bandas_data[] = new Vinos[]{ //Array de prueba para el Grid
-                new Vinos(R.drawable.vino, "Vino1"),
-                new Vinos(R.drawable.vino, "Vino2"),
-                new Vinos(R.drawable.vino, "Vino3"),
-                new Vinos(R.drawable.vino, "Vino4"),
-                new Vinos(R.drawable.vino, "Vino5"),
-                new Vinos(R.drawable.vino, "Vino6"),
-                new Vinos(R.drawable.vino, "Vino7"),
-                new Vinos(R.drawable.ic_launcher, "Vino8"),
-                new Vinos(R.drawable.ic_launcher, "Vino1"),
-                new Vinos(R.drawable.ic_launcher, "Vino10"),
-                new Vinos(R.drawable.ic_launcher, "Vino11"),
-                new Vinos(R.drawable.ic_launcher, "Vino12"),
-                new Vinos(R.drawable.ic_launcher, "Vino13"),
-                new Vinos(R.drawable.ic_launcher, "Vino14"),
-                new Vinos(R.drawable.ic_launcher, "Vino15"),
-                new Vinos(R.drawable.ic_launcher, "Vino21"),
-                new Vinos(R.drawable.ic_launcher, "Vino32"),
-                new Vinos(R.drawable.ic_launcher, "Vino41"),
-                new Vinos(R.drawable.ic_launcher, "Vino55"),
-                new Vinos(R.drawable.ic_launcher, "Vino64"),
-                new Vinos(R.drawable.ic_launcher, "Vino76"),
-                new Vinos(R.drawable.ic_launcher, "Vino83"),
-                new Vinos(R.drawable.ic_launcher, "Vino94"),
-                new Vinos(R.drawable.ic_launcher, "Vino120"),
-                new Vinos(R.drawable.ic_launcher, "Vino151"),
-                new Vinos(R.drawable.ic_launcher, "Vino127"),
-                new Vinos(R.drawable.ic_launcher, "Vino135"),
-                new Vinos(R.drawable.ic_launcher, "Vino148"),
-                new Vinos(R.drawable.ic_launcher, "Vino12"),
-                new Vinos(R.drawable.ic_launcher, "Vino13"),
-                new Vinos(R.drawable.ic_launcher, "Vino14"),
-                new Vinos(R.drawable.ic_launcher, "Vino15"),
-                new Vinos(R.drawable.ic_launcher, "Vino21"),
-                new Vinos(R.drawable.ic_launcher, "Vino32"),
-                new Vinos(R.drawable.ic_launcher, "Vino41"),
-                new Vinos(R.drawable.ic_launcher, "Vino55"),
-                new Vinos(R.drawable.ic_launcher, "Vino64"),
-                new Vinos(R.drawable.ic_launcher, "Vino76"),
-                new Vinos(R.drawable.ic_launcher, "Vino83"),
-                new Vinos(R.drawable.ic_launcher, "Vino94"),
-                new Vinos(R.drawable.ic_launcher, "Vino120"),
-                new Vinos(R.drawable.ic_launcher, "Vino151"),
-                new Vinos(R.drawable.ic_launcher, "Vino127"),
-                new Vinos(R.drawable.ic_launcher, "Vino135"),
-                new Vinos(R.drawable.ic_launcher, "Vino148"),
-        };
-        VinosAdapter adapter = new VinosAdapter(GridActivity.this, R.layout.grid_view_item_row, bandas_data); //Adaptador para el GRID
+        final ArrayList<Vinos> array_vinos = new ArrayList<Vinos>();
+        for (int i = 0; i < 20; i++) {
+            String aux = "Vinos" + String.valueOf(i).toString();
+            array_vinos.add(new Vinos(R.drawable.vino, aux));
+        }
+
+        VinosAdapter adapter = new VinosAdapter(GridActivity.this, R.layout.grid_view_item_row, array_vinos); //Adaptador para el GRID
         View header = (View) getLayoutInflater().inflate(R.layout.grid_header_row, null);
         lv.setAdapter(adapter);
-
 
 
         //FUNCIÓN QUE SE ACTIVA CUANDO SE SELECCIONA UN ITEM DEL SPINNER
@@ -126,28 +84,27 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) { // Que hacer cuando se selecciona un ítem
                 Toast.makeText(GridActivity.this, "Position " + String.valueOf(spinner.getSelectedItem()), Toast.LENGTH_SHORT).show(); //Hace un toast
                 int j = 0; //Variable que servirá para incrementar el nuevo vector modificado que almacenará los nuevos datos del grid.
-                if (String.valueOf(spinner.getSelectedItem()).equals("Tipo") == false){ //Si el item seleccionado por el Spinner es Tipo, no cambia el estado del grid. Debería mostrar todos los Vinos. Necesita un Else
+                if (String.valueOf(spinner.getSelectedItem()).equals("Tipo") == false) { //Si el item seleccionado por el Spinner es Tipo, no cambia el estado del grid. Debería mostrar todos los Vinos. Necesita un Else
                     int contador = 0; //Variable que contará de que tamaño se debe construir el vector que almacenará los nuevos datos
-                    for (int i = 0; i < bandas_data.length; i++) { //Se recorre todo el vector donde están los vinos
-                        if (bandas_data[i].get_title().equals(String.valueOf(spinner.getSelectedItem()))) { //Si es el vino seleccionado en el Spinner
-                            contador=contador+1; //Se aumenta 1 en el contador
+                    for (int i = 0; i < array_vinos.size(); i++) { //Se recorre todo el vector donde están los vinos
+                        if (array_vinos.get(i).get_title().equals(String.valueOf(spinner.getSelectedItem()))) { //Si es el vino seleccionado en el Spinner
+                            contador = contador + 1; //Se aumenta 1 en el contador
                         }
                     }
-                    final Vinos modificado[] = new Vinos [contador]; //Se crea el nuevo vector con el tamaño indicado anteriormente
-                    for (int i = 0; i < bandas_data.length; i++) { //Se recorre de nuevo el vector
-                        if (bandas_data[i].get_title().equals(String.valueOf(spinner.getSelectedItem()))) {  //Si es el vino seleccionado en el Spinner
-                            modificado[j] = new Vinos(bandas_data[i].get_icon(), bandas_data[i].get_title()); //Se almacenan los datos nuevos en el vector modificado
+                    final ArrayList<Vinos> modificado = new ArrayList<Vinos>(); //Se crea el nuevo vector con el tamaño indicado anteriormente
+                    //Se recorre de nuevo el vector
+                    for (int i = 0; i < array_vinos.size(); i++)
+                        if (array_vinos.get(i).get_title().equals(String.valueOf(spinner.getSelectedItem()))) {  //Si es el vino seleccionado en el Spinner
+                            modificado.add(new Vinos(array_vinos.get(i).get_icon(), array_vinos.get(i).get_title())); //Se almacenan los datos nuevos en el vector modificado
                             j++; //Se incrementa el contador
                         }
-                    }
                     VinosAdapter adapter = new VinosAdapter(GridActivity.this, R.layout.grid_view_item_row, modificado); //Se vuelve a crear el adaptador para los vinos con el nuevo vector
                     lv = (GridView) findViewById(R.id.grid);
                     View header = (View) getLayoutInflater().inflate(R.layout.grid_header_row, null);
                     lv.setAdapter(adapter);
                 } //else {
-                    //Mostrar todos los vinos
-                //}
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) { //Que hacer cuando no hay nada seleccionado
                 //Nada por ahora
