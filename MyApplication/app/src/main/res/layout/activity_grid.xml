@@ -64,11 +64,11 @@
         android:id="@+id/frameLayout">
 
         <GridView
-            android:layout_width="1135dp"
+            android:layout_width="match_parent"
             android:layout_height="496dp"
             android:id="@+id/grid"
             android:columnWidth="200dp"
-            android:numColumns="3"
+            android:numColumns="5"
             android:textFilterEnabled="false"
             android:verticalSpacing="100dp"
             android:clickable="false"
