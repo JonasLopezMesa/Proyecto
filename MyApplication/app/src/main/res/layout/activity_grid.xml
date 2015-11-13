@@ -77,7 +77,8 @@
             android:stackFromBottom="false"
             android:visibility="visible"
             android:smoothScrollbar="true"
-            android:layout_gravity="center_horizontal|bottom" />
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="#caccd0" />
 
     </FrameLayout>
 
