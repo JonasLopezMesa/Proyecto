@@ -65,6 +65,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 Log.i("MyActivity", "Se pulso el boton spain");
                 Intent intent = new Intent(MainActivity.this, GridActivity.class);
                 startActivityForResult(intent, request);
+                overridePendingTransition(R.anim.left_in, R.anim.left_out);
                 break;
         }
     }

@@ -2,6 +2,7 @@ package com.example.jons.proyecto;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -161,6 +162,8 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
             case R.id.homeicon:
                 Log.i("MyActivity", "Se pulso el boton home");
                 setResult(RESULT_OK);
+                startActivity(new Intent(this, MainActivity.class));
+                overridePendingTransition(R.anim.right_in, R.anim.right_out);
                 finish();
                 break;
         }
