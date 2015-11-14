@@ -74,7 +74,7 @@
             android:columnWidth="200dp"
             android:numColumns="5"
             android:textFilterEnabled="false"
-            android:verticalSpacing="100dp"
+            android:verticalSpacing="0dp"
             android:clickable="false"
             android:drawSelectorOnTop="false"
             android:fastScrollAlwaysVisible="false"
@@ -82,7 +82,8 @@
             android:visibility="visible"
             android:smoothScrollbar="true"
             android:layout_gravity="center_horizontal|bottom"
-            android:background="#caccd0" />
+            android:background="#caccd0"
+            />
 
     </FrameLayout>
 

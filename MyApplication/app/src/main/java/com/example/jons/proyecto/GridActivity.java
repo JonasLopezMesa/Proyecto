@@ -2,6 +2,7 @@ package com.example.jons.proyecto;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -89,9 +90,19 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
 
         //GRID///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         final ArrayList<Vinos> array_vinos = new ArrayList<Vinos>();
-        for (int i = 0; i < 20; i++) {
+        int c;
+        for (int i = 0; i < 50; i++) {
             String aux = "Vino" + String.valueOf(i).toString();
-            array_vinos.add(new Vinos(R.drawable.botellaa, aux));
+            if (i!=0){
+                if ((i/5)%2==0){
+                    c = Color.WHITE;
+                } else{
+                    c = Color.GRAY;
+                }
+            } else {
+                c = Color.WHITE;
+            }
+            array_vinos.add(new Vinos(R.drawable.botellaa, aux, c));
         }
 
         VinosAdapter adapter = new VinosAdapter(GridActivity.this, R.layout.grid_view_item_row, array_vinos); //Adaptador para el GRID
@@ -116,7 +127,7 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
                     //Se recorre de nuevo el vector
                     for (int i = 0; i < array_vinos.size(); i++)
                         if (array_vinos.get(i).get_title().equals(String.valueOf(spinner.getSelectedItem()))) {  //Si es el vino seleccionado en el Spinner
-                            modificado.add(new Vinos(array_vinos.get(i).get_icon(), array_vinos.get(i).get_title())); //Se almacenan los datos nuevos en el vector modificado
+                            modificado.add(new Vinos(array_vinos.get(i).get_icon(), array_vinos.get(i).get_title(), array_vinos.get(i).color)); //Se almacenan los datos nuevos en el vector modificado
                             j++; //Se incrementa el contador
                         }
                     VinosAdapter adapter = new VinosAdapter(GridActivity.this, R.layout.grid_view_item_row, modificado); //Se vuelve a crear el adaptador para los vinos con el nuevo vector

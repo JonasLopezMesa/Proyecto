@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class VinosAdapter extends ArrayAdapter<Vinos> {
             holder= new VinosHolder();
             holder.imagen= (ImageView) row.findViewById(R.id.imagen);
             holder.texto = (TextView) row.findViewById((R.id.tv));
+            holder.principal = (LinearLayout) row.findViewById(R.id.principal);
             row.setTag(holder);
         }
         else{
@@ -52,6 +54,7 @@ public class VinosAdapter extends ArrayAdapter<Vinos> {
         Vinos bandas = data.get(position);
         holder.texto.setText(bandas.title);
         holder.imagen.setImageResource(bandas.icon);
+        holder.principal.setBackgroundColor(bandas.color);
 
 
         return row;
@@ -60,6 +63,7 @@ public class VinosAdapter extends ArrayAdapter<Vinos> {
     static class VinosHolder{
         ImageView imagen;
         TextView texto;
+        LinearLayout principal;
     }
 }
 

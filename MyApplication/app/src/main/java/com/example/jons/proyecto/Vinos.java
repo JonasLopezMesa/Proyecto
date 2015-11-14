@@ -1,5 +1,7 @@
 package com.example.jons.proyecto;
 
+import android.graphics.Color;
+
 /**
  * Created by Jonás on 09/11/2015.
  */
@@ -7,11 +9,13 @@ public class Vinos {
 
     public int icon;
     public String title;
+    public int color;
 
-    public Vinos(int icon, String title) {
+    public Vinos(int icon, String title, int color) {
         super();
         this.icon = icon;
         this.title = title;
+        this.color = color;
     }
 
     public Vinos() {
