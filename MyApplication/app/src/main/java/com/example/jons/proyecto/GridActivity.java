@@ -90,8 +90,8 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
         //GRID///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         final ArrayList<Vinos> array_vinos = new ArrayList<Vinos>();
         for (int i = 0; i < 20; i++) {
-            String aux = "Vinos" + String.valueOf(i).toString();
-            array_vinos.add(new Vinos(R.drawable.vino, aux));
+            String aux = "Vino" + String.valueOf(i).toString();
+            array_vinos.add(new Vinos(R.drawable.botellaa, aux));
         }
 
         VinosAdapter adapter = new VinosAdapter(GridActivity.this, R.layout.grid_view_item_row, array_vinos); //Adaptador para el GRID
