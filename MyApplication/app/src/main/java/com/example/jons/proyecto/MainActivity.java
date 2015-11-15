@@ -69,4 +69,9 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 break;
         }
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        hideVirtualButtons();
+    }
 }

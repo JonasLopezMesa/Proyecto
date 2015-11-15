@@ -1,6 +1,7 @@
 package com.example.jons.proyecto;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -42,6 +43,8 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
     }
     @TargetApi(19)
     public void hideVirtualButtons() {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                         | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
@@ -167,5 +170,10 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
                 finish();
                 break;
         }
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        hideVirtualButtons();
     }
 }
