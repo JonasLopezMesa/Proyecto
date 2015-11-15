@@ -10,91 +10,99 @@
     android:paddingBottom="1dp"
     tools:context="com.example.jons.smartwaiterwine.GridActivity">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@drawable/ban"/>
-
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="1"
-        android:gravity="top"
-        android:layout_above="@+id/frameLayout"
-        android:layout_alignParentTop="true"
-        android:background="#b4d7f5">
+        android:layout_height="match_parent">
 
-        <Spinner
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner2" />
-
-        <Spinner
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner3"
-            android:layout_weight="0.13" />
-
-        <Spinner
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner4" />
-
-        <Spinner
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner5" />
-
-        <Spinner
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner6" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Reset"
-            android:id="@+id/button" />
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/homeicon"
-        android:id="@+id/frameLayout">
-
-        <GridView
-            android:layout_width="match_parent"
-            android:layout_height="496dp"
-            android:id="@+id/grid"
-            android:columnWidth="200dp"
-            android:numColumns="5"
-            android:textFilterEnabled="false"
-            android:verticalSpacing="0dp"
-            android:clickable="false"
-            android:drawSelectorOnTop="false"
-            android:fastScrollAlwaysVisible="false"
-            android:stackFromBottom="false"
-            android:visibility="visible"
-            android:smoothScrollbar="true"
-            android:layout_gravity="center_horizontal|bottom"
-            android:background="#caccd0"
+        <ImageView
+            android:layout_width="1280dp"
+            android:layout_height="150dp"
+            android:id="@+id/imageView3"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ba"
+            android:scaleType="fitXY"
             />
 
-    </FrameLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:weightSum="1"
+            android:gravity="top"
+            android:layout_above="@+id/frameLayout"
+            android:layout_alignParentTop="true"
+            android:background="#b4d7f5">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/homeicon"
-        android:src="@drawable/home_icon"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner2" />
 
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner3"
+                android:layout_weight="0.13" />
+
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner4" />
+
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner5" />
+
+            <Spinner
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner6" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reset"
+                android:id="@+id/button" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/homeicon"
+            android:id="@+id/frameLayout">
+
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="530dp"
+                android:id="@+id/grid"
+                android:columnWidth="200dp"
+                android:numColumns="5"
+                android:textFilterEnabled="false"
+                android:verticalSpacing="0dp"
+                android:clickable="false"
+                android:drawSelectorOnTop="false"
+                android:fastScrollAlwaysVisible="false"
+                android:stackFromBottom="false"
+                android:visibility="visible"
+                android:smoothScrollbar="true"
+                android:layout_gravity="center_horizontal|bottom"
+                android:background="#caccd0"
+                />
+
+        </FrameLayout>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/homeicon"
+            android:src="@drawable/home_icon"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true" />
+    </LinearLayout>
 
 
 </RelativeLayout>
