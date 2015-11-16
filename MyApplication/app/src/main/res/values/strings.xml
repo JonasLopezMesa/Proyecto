@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Proyecto</string>
+    <string name="tipoes">Tipo</string>
+    <string name="tipoen">Kind</string>
+    <string name="tipoal">Art</string>
+    <string name="tiporu">тип</string>
 </resources>
