@@ -1,49 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="1024dp"
-    android:layout_height="640dp">
-
-<LinearLayout
-    android:layout_width="250dp"
-    android:layout_height="640dp"
-    android:orientation="vertical"
-    android:weightSum="1"
-    android:id="@+id/linearLayout">
-
+    android:layout_width="1025dp"
+    android:layout_height="641dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#6e968a">
-    </LinearLayout>
-
-
-
-    <LinearLayout
+        android:layout_height="640dp"
         android:orientation="vertical"
-        android:layout_width="250dp"
-        android:layout_height="450dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#b54782">
+        android:weightSum="1"
+        android:id="@+id/linearLayout">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/imageView"
-            android:src="@drawable/botella_vino" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal">
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="450dp"
+            android:layout_gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageView"
+                android:src="@drawable/botella_vino"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="250dp"
+            android:layout_height="130dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#c9ce9f">
+        </LinearLayout>
+
     </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="250dp"
-        android:layout_height="130dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#c9ce9f">
-    </LinearLayout>
-
-</LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -57,13 +55,11 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="714dp"
-            android:layout_height="60dp"
-            android:background="#6e9589">
+            android:layout_height="60dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/circulo_tinto"
                 android:id="@+id/imageView4"
                 android:layout_gravity="center_vertical" />
 
@@ -79,8 +75,14 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="#ff0000"></LinearLayout>
+            android:layout_height="60dp">
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton"
+                android:background="#ffffff" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
