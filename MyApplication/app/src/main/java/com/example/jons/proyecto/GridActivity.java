@@ -31,6 +31,7 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
     GridView lv; //Variable del Grid
     Spinner spinner; //Variable del selector, en ese caso sólo está el primero.
     int mod = 0;
+    int variableidioma;
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -56,6 +57,9 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent =getIntent();
+        Bundle extras = intent.getExtras();
+
         requestWindowFeature(Window.FEATURE_NO_TITLE); //Impedir que se vea el AppBar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
@@ -76,21 +80,64 @@ public class GridActivity extends ActionBarActivity implements View.OnClickListe
         //SPINNER////////////////////////////////////////////////////////////////////////////////////////////////////////////
         //rellenar Spinner de prueba, este Spinner es de prueba para probar como interactuarían los Spinners con el Grid
         List list = new ArrayList();
-        list.add("Tipo");
-        list.add("Vino1");
-        list.add("Vino2");
-        list.add("Vino3");
-        list.add("Vino4");
-        list.add("Vino5");
-        list.add("Vino6");
-        list.add("Vino7");
-        list.add("Vino8");
+        if(extras != null){
+            int dato = extras.getInt("Variable");
+            if (dato == 1){
+                Log.i("MyActivity", "if1");
+                list.add(getResources().getString(R.string.tipoes));
+                list.add("Vino1");
+                list.add("Vino2");
+                list.add("Vino3");
+                list.add("Vino4");
+                list.add("Vino5");
+                list.add("Vino6");
+                list.add("Vino7");
+                list.add("Vino8");
 
-        //¿El contenido de los Spinners se pondrían directamente en el código o estarían en la base de datos?
+            }
+            if (dato == 2){
+                Log.i("MyActivity", "if2");
+                list.add(getResources().getString(R.string.tipoen));
+                list.add("Vino1");
+                list.add("Vino2");
+                list.add("Vino3");
+                list.add("Vino4");
+                list.add("Vino5");
+                list.add("Vino6");
+                list.add("Vino7");
+                list.add("Vino8");
 
+            }
+            if (dato == 3){
+                Log.i("MyActivity", "if3");
+                list.add(getResources().getString(R.string.tipoal));
+                list.add("Vino1");
+                list.add("Vino2");
+                list.add("Vino3");
+                list.add("Vino4");
+                list.add("Vino5");
+                list.add("Vino6");
+                list.add("Vino7");
+                list.add("Vino8");
+
+            }
+            if (dato == 4){
+                Log.i("MyActivity", "if4");
+                list.add(getResources().getString(R.string.tiporu));
+                list.add("Vino1");
+                list.add("Vino2");
+                list.add("Vino3");
+                list.add("Vino4");
+                list.add("Vino5");
+                list.add("Vino6");
+                list.add("Vino7");
+                list.add("Vino8");
+
+            }}
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, list); //Adaptador para el Spinner
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(arrayAdapter); //Adaptador para el Spinner
+
 
         //GRID///////////////////////////////////////////////////////////////////////////////////////////////////////////////
         final ArrayList<Vinos> array_vinos = new ArrayList<Vinos>();

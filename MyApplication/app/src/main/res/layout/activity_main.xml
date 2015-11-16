@@ -52,19 +52,7 @@
                 android:layout_gravity="bottom"
                 android:src="@drawable/uk" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/italy"
-                android:layout_gravity="bottom"
-                android:src="@drawable/misc_flags_italia" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/france"
-                android:layout_gravity="bottom"
-                android:src="@drawable/misc_flags_france" />
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -72,6 +60,14 @@
                 android:id="@+id/germany"
                 android:layout_gravity="bottom"
                 android:src="@drawable/misc_flags_germany" />
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/russian"
+                android:layout_gravity="bottom"
+                android:src="@drawable/banderarusia"
+                android:scaleType="fitXY"/>
         </LinearLayout>
 
     </LinearLayout>

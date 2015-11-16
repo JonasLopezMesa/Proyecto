@@ -14,9 +14,10 @@ import android.widget.ImageButton;
 
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
-    //COMENTARIO
-    //otro comentario
     ImageButton spain;
+    ImageButton england;
+    ImageButton germany;
+    ImageButton russia;
     int request;
 
     @Override
@@ -52,19 +53,52 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
         }
         setContentView(R.layout.activity_main);
 
-
+                  //TODOS LOS IDIOMAS
         spain = (ImageButton) findViewById(R.id.spain);
         spain.setOnClickListener(this);
+        england = (ImageButton) findViewById(R.id.unitedkindong);
+        england.setOnClickListener(this);
+        germany = (ImageButton) findViewById(R.id.germany);
+        germany.setOnClickListener(this);
+        russia = (ImageButton) findViewById(R.id.russian);
+        russia.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
+        int variableidioma; //Esta es la variable que voy a usar para saber que idioma debo mostrar: 1:Español, 2:Ingles, 3:Aleman, 4:Ruso
         switch (v.getId()){
             case R.id.spain:
+                variableidioma=1;
                 Log.i("MyActivity", "Se pulso el boton spain");
-                Intent intent = new Intent(MainActivity.this, GridActivity.class);
-                startActivityForResult(intent, request);
+                Intent intentes = new Intent(MainActivity.this, GridActivity.class);
+                intentes.putExtra("Variable",variableidioma);
+                startActivityForResult(intentes, request);
+                overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                break;
+            case R.id.unitedkindong:
+                variableidioma=2;
+                Log.i("MyActivity", "Se pulso el boton england");
+                Intent intenten = new Intent(MainActivity.this, GridActivity.class);
+                intenten.putExtra("Variable",variableidioma);
+                startActivityForResult(intenten, request);
+                overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                break;
+            case R.id.germany:
+                variableidioma=3;
+                Log.i("MyActivity", "Se pulso el boton germany");
+                Intent intentge = new Intent(MainActivity.this, GridActivity.class);
+                intentge.putExtra("Variable",variableidioma);
+                startActivityForResult(intentge, request);
+                overridePendingTransition(R.anim.left_in, R.anim.left_out);
+                break;
+            case R.id.russian:
+                variableidioma=4;
+                Log.i("MyActivity", "Se pulso el boton russia");
+                Intent intentru = new Intent(MainActivity.this, GridActivity.class);
+                intentru.putExtra("Variable",variableidioma);
+                startActivityForResult(intentru, request);
                 overridePendingTransition(R.anim.left_in, R.anim.left_out);
                 break;
         }
